@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Pancake from './Pancake';
+import { setInterval } from 'timers';
 
 class Game extends React.Component {
 
@@ -17,6 +18,10 @@ class Game extends React.Component {
   }
 
   // TODO: create a componentDidMount() which will set the current time
+  componentDidMount() {
+    this.state.time = setInterval(this.setCurrentTime, 1000)
+  }
+
   
   setCurrentTime = () => {
     this.setState({ time: new Date(Date.now())});
